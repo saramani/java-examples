@@ -44,8 +44,8 @@ public class Fibonacci {
 			return BigInteger.valueOf(n);
 		}
 
-		BigInteger fibNMinus1 = BigInteger.valueOf(1);
 		BigInteger fibNMinus2 = BigInteger.valueOf(0);
+		BigInteger fibNMinus1 = BigInteger.valueOf(1);
 		BigInteger fib = BigInteger.valueOf(0);
 
 		for (long i = 2; i <= n; i++) {
@@ -56,21 +56,38 @@ public class Fibonacci {
 		return fib;
 	}
 	
-	public static long fib(long n) {
-
+//	public static long fib(long n) {
+//
+//		
+//		long fib1 = 0;
+//		long fib2 = 1;
+//		long fib = 0;
+//		
+//		for (int i = 0;i < n; i++) {
+//			fib = fib1 + fib2;
+//			fib2 = fib1;
+//			fib1 = fib;
+//		}
+//		
+//		return fib;
+//		
+//	}
+	// 0 1 1 2 3 5 
+	public static BigInteger fib(long n) {
 		
-		long fib1 = 0;
-		long fib2 = 1;
-		long fib = 0;
-		
-		for (int i = 0;i < n; i++) {
-			fib = fib1 + fib2;
-			fib2 = fib1;
-			fib1 = fib;
-		}
-		
-		return fib;
+	BigInteger fib2 = BigInteger.valueOf(0);
+	BigInteger fib1 = BigInteger.valueOf(1);
+	BigInteger fib = BigInteger.valueOf(0);
+	
+	for (long i = 2; i <= n; i++) {
+		fib = fib1.add(fib2);
+		fib2 = fib1;
+		fib1 = fib;
+	}
+	return fib;
 		
 	}
+	
+	
 
 }
