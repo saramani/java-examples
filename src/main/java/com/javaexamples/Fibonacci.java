@@ -17,7 +17,7 @@ public class Fibonacci {
 	public static void main(String[] args) {
 		final Stopwatch stopwatch = Stopwatch.createStarted();
 		for (long i = 0; i <= 20; i++) {
-			System.out.println("Fib(" + i + ")->" + fib(i));
+			System.out.println("Fib(" + i + ")->" + getSwapFib(i));
 		}
 		System.out.println("Elapsed time in Seconds ==> " + stopwatch.elapsed(TimeUnit.SECONDS));
 
@@ -40,54 +40,20 @@ public class Fibonacci {
 	}
 
 	public static BigInteger getSwapFib(long n) {
-		if (n <= 1) {
-			return BigInteger.valueOf(n);
-		}
-
-		BigInteger fibNMinus2 = BigInteger.valueOf(0);
-		BigInteger fibNMinus1 = BigInteger.valueOf(1);
-		BigInteger fib = BigInteger.valueOf(0);
-
-		for (long i = 2; i <= n; i++) {
-			fib = fibNMinus1.add(fibNMinus2);
-			fibNMinus2 = fibNMinus1;
-			fibNMinus1 = fib;
-		}
-		return fib;
-	}
-	
-//	public static long fib(long n) {
-//
-//		
-//		long fib1 = 0;
-//		long fib2 = 1;
-//		long fib = 0;
-//		
-//		for (int i = 0;i < n; i++) {
-//			fib = fib1 + fib2;
-//			fib2 = fib1;
-//			fib1 = fib;
-//		}
-//		
-//		return fib;
-//		
-//	}
-	// 0 1 1 2 3 5 
-	public static BigInteger fib(long n) {
 		
-	BigInteger fib2 = BigInteger.valueOf(0);
-	BigInteger fib1 = BigInteger.valueOf(1);
-	BigInteger fib = BigInteger.valueOf(0);
-	
-	for (long i = 2; i <= n; i++) {
-		fib = fib1.add(fib2);
-		fib2 = fib1;
-		fib1 = fib;
+		if ( n <= 1) { 
+			return  BigInteger.valueOf(n);
+		} else {
+			BigInteger fib2 = BigInteger.valueOf(0);
+			BigInteger fib1 = BigInteger.valueOf(1);
+			BigInteger fib = BigInteger.valueOf(0);
+			
+			for (long i = 2; i <= n; i++) {
+				fib = fib1.add(fib2);
+				fib2 = fib1;
+				fib1 = fib;
+			}
+			return fib;
+		}
 	}
-	return fib;
-		
-	}
-	
-	
-
 }
